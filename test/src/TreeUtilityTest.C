@@ -13,7 +13,7 @@
  
 	using namespace std;
 	
-	using namespace minimiser;
+	using namespace pftools;
 	
 	TreeUtility tu;
 	
