@@ -9,7 +9,7 @@
  
 	gSystem->Load("libRecoParticleFlowPFClusterTools.so");
 	
-	TFile f("treeUtilityTest.root");
+	TFile f("singleParticle.root");
  
 	using namespace std;
 	
@@ -17,6 +17,6 @@
 	
 	TreeUtility tu;
 	
-	//tu.recreateFromRootFile(f);
+	tu.recreateFromRootFile(f);
 	
 }
