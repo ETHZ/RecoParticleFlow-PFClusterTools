@@ -1,4 +1,0 @@
-//--- initialize calibration parameters for energy deposits of electrons and photons in ECAL;
-//     E_calib =  pf_ECAL_calib_p0 + E_raw * pf_ECAL_calib_p1
- double  pf_ECAL_calib_p0 = 0.
- double  pf_ECAL_calib_p1 = 1.  
