@@ -3,8 +3,11 @@
 #include "DataFormats/ParticleFlowReco/interface/PFRecHit.h"
 #include "RecoParticleFlow/PFClusterTools/interface/PFPhotonClusters.h"
 
+#include "FWCore/MessageLogger/interface/MessageLogger.h"
+
 #include <TMath.h>
 #include <TVector2.h>
+using namespace reco;
 PFPhotonClusters::PFPhotonClusters(PFClusterRef PFClusterRef):
   PFClusterRef_(PFClusterRef)
 {
@@ -148,7 +151,11 @@ void PFPhotonClusters::FillClusterShape(){
       int iEta=ind1+2;
       int iPhi=ind2+2;
       //std::cout<<"IEta, IPhi "<<iEta<<", "<<iPhi<<std::endl;
-      e5x5_[iEta][iPhi]=E;
+      if (iEta>4 || iPhi > 4){
+	edm::LogInfo("OutOfBounds")<<"iEta = "<<iEta<<" iPhi = "<<iPhi;
+      } else {
+	e5x5_[iEta][iPhi]=E;
+      }
     }
     else{
       int dx=EEDetId::distanceX(id,idseed_);
@@ -161,7 +168,11 @@ void PFPhotonClusters::FillClusterShape(){
       int ix=ind1+2;
       int iy=ind2+2;
       //std::cout<<"IX, IY "<<ix<<", "<<iy<<std::endl;	    
-      e5x5_[ix][iy]=E;
+      if (ix>4 || iy>4){
+	edm::LogInfo("OutOfBounds")<<"ix = "<<ix<<" iy = "<<iy;
+      } else {
+	e5x5_[ix][iy]=E;
+      }
     }
   }
 }
