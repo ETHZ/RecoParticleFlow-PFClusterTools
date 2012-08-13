@@ -151,7 +151,7 @@ void PFPhotonClusters::FillClusterShape(){
       int iEta=ind1+2;
       int iPhi=ind2+2;
       //std::cout<<"IEta, IPhi "<<iEta<<", "<<iPhi<<std::endl;
-      if (iEta>4 || iPhi > 4){
+      if (iEta>4 || iPhi > 4 || iEta<0 || iPhi<0){
 	edm::LogInfo("OutOfBounds")<<"iEta = "<<iEta<<" iPhi = "<<iPhi;
       } else {
 	e5x5_[iEta][iPhi]=E;
@@ -168,7 +168,7 @@ void PFPhotonClusters::FillClusterShape(){
       int ix=ind1+2;
       int iy=ind2+2;
       //std::cout<<"IX, IY "<<ix<<", "<<iy<<std::endl;	    
-      if (ix>4 || iy>4){
+      if (ix>4 || iy>4 || ix<0 || iy<0 ){
 	edm::LogInfo("OutOfBounds")<<"ix = "<<ix<<" iy = "<<iy;
       } else {
 	e5x5_[ix][iy]=E;
