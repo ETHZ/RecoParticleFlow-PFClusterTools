@@ -151,7 +151,7 @@ void PFPhotonClusters::FillClusterShape(){
       int iEta=ind1+2;
       int iPhi=ind2+2;
       //std::cout<<"IEta, IPhi "<<iEta<<", "<<iPhi<<std::endl;
-      if (iEta>4 || iPhi > 4 || iEta<0 || iPhi<0){
+      if (iEta*5 + iPhi > 24 || iEta*5 + iPhi < 0){ //really check just writing outside the array
 	edm::LogInfo("OutOfBounds")<<"iEta = "<<iEta<<" iPhi = "<<iPhi;
       } else {
 	e5x5_[iEta][iPhi]=E;
@@ -168,7 +168,7 @@ void PFPhotonClusters::FillClusterShape(){
       int ix=ind1+2;
       int iy=ind2+2;
       //std::cout<<"IX, IY "<<ix<<", "<<iy<<std::endl;	    
-      if (ix>4 || iy>4 || ix<0 || iy<0 ){
+      if (ix*5 + iy > 24 || ix*5 + iy < 0 ){ //no indication there was a problem here, just sanity-protection as above
 	edm::LogInfo("OutOfBounds")<<"ix = "<<ix<<" iy = "<<iy;
       } else {
 	e5x5_[ix][iy]=E;
